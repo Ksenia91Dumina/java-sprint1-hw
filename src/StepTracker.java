@@ -15,7 +15,7 @@ public class StepTracker {
         }
     }
 
-     void saveStepsPerDay(int month, int day, int steps) {
+    void saveStepsPerDay(int month, int day, int steps) {
         for (Integer monthNumber : monthToData.keySet()) {
             if (month == monthNumber) {
                 monthData.addStepsPerDay(day, steps);
@@ -24,9 +24,9 @@ public class StepTracker {
         }
     }
 
-     void printAllStepsPerMonth(int month) {
+    void printAllStepsPerMonth(int month) {
         for (Integer monthNumber : monthToData.keySet()) {
-            if (month == monthNumber)  {
+            if (month == monthNumber) {
                 MonthData days = monthToData.get(month);
                 days.printSteps();
             }
@@ -86,12 +86,12 @@ public class StepTracker {
                 bestSeries = days.bestSeries(goalOfSteps);
             }
         }
-                if (bestSeries<=1)
-                    System.out.println("В этом месяце не было серии");
-                else if(bestSeries<5 || bestSeries>2)
-                    System.out.println("Лучшая серия - "+ bestSeries +" дня подряд");
-                else
-                    System.out.println("Лучшая серия - "+ bestSeries +" дней подряд");
+        if (bestSeries <= 1)
+            System.out.println("В этом месяце не было серии");
+        else if (bestSeries < 5 || bestSeries > 2)
+            System.out.println("Лучшая серия - " + bestSeries + " дня подряд");
+        else
+            System.out.println("Лучшая серия - " + bestSeries + " дней подряд");
 
     }
 

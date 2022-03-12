@@ -9,16 +9,13 @@ public class Main {
         Commands commands = new Commands();
 
         while (true) {
-            if (userInput == 1){
-                commands.command_1();
-            }
-            else if (userInput == 2) {
-                commands.command_2();
-            }
-           else if (userInput == 3) {
-               commands.command_3();
-            }
-           else if (userInput == 4){
+            if (userInput == 1) {
+                commands.command1();
+            } else if (userInput == 2) {
+                commands.command2();
+            } else if (userInput == 3) {
+                commands.command3();
+            } else if (userInput == 4) {
                 System.out.println("Программа завершена");
                 break;
             } else {
