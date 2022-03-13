@@ -1,20 +1,30 @@
+//Доброго дня! Вчера сразу не поняла как смотреть замечания.
+//Прошу понять и простить)
+
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+        final int ADD_STEPS = 1;
+        final int SHOW_STATISTICS = 2;
+        final int CHANGE_GOAL = 3;
+        final int BREAK = 4;
+
         printMenu();
         int userInput = scanner.nextInt();
-        Commands commands = new Commands();
+        Commands commands = new Commands(scanner);
+
         while (true) {
-            if (userInput == 1) {
-                commands.command1();
-            } else if (userInput == 2) {
-                commands.command2();
-            } else if (userInput == 3) {
-                commands.command3();
-            } else if (userInput == 4) {
-                commands.command4();
+            if (userInput == ADD_STEPS) {
+                commands.command1(scanner);
+            } else if (userInput == SHOW_STATISTICS) {
+                commands.command2(scanner);
+            } else if (userInput == CHANGE_GOAL) {
+                commands.command3(scanner);
+            } else if (userInput == BREAK) {
+                System.out.println("Программа завершена");
+                scanner.close();
                 break;
             } else {
                 System.out.println("Извините, такой команды нет. Выберите из списка. ");

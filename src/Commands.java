@@ -1,10 +1,11 @@
 import java.util.Scanner;
 
 public class Commands {
-    Scanner scanner = new Scanner(System.in);
     StepTracker stepTracker = new StepTracker();
 
-    void command1() {
+    public Commands(Scanner scanner){};
+
+    void command1(Scanner scanner) {
         System.out.println("За какой месяц хотите ввести данные (введите от 1 до 12)?");
         System.out.println("1 - Январь");
         System.out.println("2 - Февраль");
@@ -40,7 +41,7 @@ public class Commands {
         }
     }
 
-    void command2() {
+    void command2(Scanner scanner) {
         System.out.println("За какой месяц хотите посмотреть данные (введите от 1 до 12)?");
         int month = scanner.nextInt();
         if (month < 1 || month > 12) System.out.println("Введено некорректное значение!");
@@ -56,7 +57,7 @@ public class Commands {
         }
     }
 
-    void command3() {
+    void command3(Scanner scanner) {
         System.out.println("Какое количество шагов записать в целевое значение?");
         int steps = scanner.nextInt();
         if (steps < 0) System.out.println("Введено некорректное значение! Не может быть отрицательным.");
@@ -66,7 +67,4 @@ public class Commands {
         }
     }
 
-    void command4() {
-        System.out.println("Программа завершена");
-    }
 }

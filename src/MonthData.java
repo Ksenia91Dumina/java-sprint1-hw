@@ -3,6 +3,7 @@ import java.util.Collections;
 
 public class MonthData {
 
+    final  int CONDITION_FOR_RIGHT_PUNCTUATION = 29;
     public int day;
     public int steps;
     ArrayList<Integer> monthDates = new ArrayList<>();
@@ -27,8 +28,10 @@ public class MonthData {
     void printSteps() {
         System.out.println("Количество пройденных шагов по дням: ");
         for (int i = 0; i < monthDates.size(); i++) {
-            if (i < 29) System.out.print((i + 1) + " день: " + monthDates.get(i) + ", ");
-            else System.out.print((i + 1) + " день: " + monthDates.get(i) + ".\n");
+            if (i < CONDITION_FOR_RIGHT_PUNCTUATION)
+                System.out.print((i + 1) + " день: " + monthDates.get(i) + ", ");
+            else
+                System.out.print((i + 1) + " день: " + monthDates.get(i) + ".\n");
         }
     }
 
@@ -49,7 +52,7 @@ public class MonthData {
         return max;
     }
 
-    int bestSeries(int goalOfSteps, int bestSeries) {
+    int bestSeries(int goalOfSteps) {
         int amountOfDays = 0;
         ArrayList<Integer> targetDays = new ArrayList<>();
         for (int i = 0; i < monthDates.size(); i++) {
@@ -59,7 +62,7 @@ public class MonthData {
                 amountOfDays = 0;
             }
         }
-        return bestSeries = Collections.max(targetDays);
+        return Collections.max(targetDays);
     }
 }
 
