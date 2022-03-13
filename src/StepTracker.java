@@ -1,13 +1,11 @@
 import java.util.HashMap;
-import java.util.ArrayList;
-import java.util.Collections;
 
 public class StepTracker {
 
     public MonthData monthData = new MonthData();
+    public int goalOfSteps = 10000;
     Converter converter = new Converter();
     HashMap<Integer, MonthData> monthToData = new HashMap<>();
-    public int goalOfSteps = 10000;
 
     public StepTracker() {
         for (int i = 0; i < 12; i++) {
@@ -83,16 +81,12 @@ public class StepTracker {
         for (Integer monthNumber : monthToData.keySet()) {
             if (month == monthNumber) {
                 MonthData days = monthToData.get(month);
-                bestSeries = days.bestSeries(goalOfSteps);
+                bestSeries = days.bestSeries(goalOfSteps, bestSeries);
             }
         }
-        if (bestSeries <= 1)
-            System.out.println("В этом месяце не было серии");
-        else if (bestSeries < 5 || bestSeries > 2)
-            System.out.println("Лучшая серия - " + bestSeries + " дня подряд");
-        else
-            System.out.println("Лучшая серия - " + bestSeries + " дней подряд");
-
+        if (bestSeries <= 1) System.out.println("В этом месяце не было серии");
+        else if (bestSeries < 5) System.out.println("Лучшая серия - " + bestSeries + " дня подряд");
+        else System.out.println("Лучшая серия - " + bestSeries + " дней подряд");
     }
 
 }

@@ -2,12 +2,10 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-
         Scanner scanner = new Scanner(System.in);
         printMenu();
         int userInput = scanner.nextInt();
         Commands commands = new Commands();
-
         while (true) {
             if (userInput == 1) {
                 commands.command1();
@@ -16,15 +14,14 @@ public class Main {
             } else if (userInput == 3) {
                 commands.command3();
             } else if (userInput == 4) {
-                System.out.println("Программа завершена");
+                commands.command4();
                 break;
             } else {
                 System.out.println("Извините, такой команды нет. Выберите из списка. ");
             }
-            printMenu(); // печатем меню ещё раз перед завершением предыдущего действия
-            userInput = scanner.nextInt(); // повторное считывание данных от пользователя
+            printMenu();
+            userInput = scanner.nextInt();
         }
-
     }
 
     private static void printMenu() {
@@ -34,6 +31,4 @@ public class Main {
         System.out.println("3 - Изменить цель по количеству шагов в день");
         System.out.println("4 - Выйти из приложения");
     }
-
-
 } 

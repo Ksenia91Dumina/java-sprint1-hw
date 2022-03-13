@@ -1,7 +1,6 @@
 import java.util.Scanner;
 
 public class Commands {
-
     Scanner scanner = new Scanner(System.in);
     StepTracker stepTracker = new StepTracker();
 
@@ -20,18 +19,15 @@ public class Commands {
         System.out.println("11 - Ноябрь");
         System.out.println("12 - Декабрь");
         int month = scanner.nextInt();
-        if (month < 1 || month > 12)
-            System.out.println("Введено некорректное значение!");
+        if (month < 1 || month > 12) System.out.println("Введено некорректное значение!");
         else {
             System.out.println("За какой день (введите от 1 до 30)?");
             int day = scanner.nextInt();
-            if (day < 1 || day > 30)
-                System.out.println("Введено некорректное значение!");
+            if (day < 1 || day > 30) System.out.println("Введено некорректное значение!");
             else {
                 System.out.println("Введите количество шагов");
                 int steps = scanner.nextInt();
-                if (steps < 0)
-                    System.out.println("Введено некорректное значение! Не может быть отрицательным.");
+                if (steps < 0) System.out.println("Введено некорректное значение! Не может быть отрицательным.");
                 else {
                     if (stepTracker.monthToData.containsKey(month - 1))
                         stepTracker.saveStepsPerDay((month - 1), (day - 1), steps);
@@ -47,8 +43,7 @@ public class Commands {
     void command2() {
         System.out.println("За какой месяц хотите посмотреть данные (введите от 1 до 12)?");
         int month = scanner.nextInt();
-        if (month < 1 || month > 12)
-            System.out.println("Введено некорректное значение!");
+        if (month < 1 || month > 12) System.out.println("Введено некорректное значение!");
         else {
             int monthForSearch = month - 1;
             stepTracker.printAllStepsPerMonth(monthForSearch);
@@ -64,11 +59,14 @@ public class Commands {
     void command3() {
         System.out.println("Какое количество шагов записать в целевое значение?");
         int steps = scanner.nextInt();
-        if (steps < 0)
-            System.out.println("Введено некорректное значение! Не может быть отрицательным.");
+        if (steps < 0) System.out.println("Введено некорректное значение! Не может быть отрицательным.");
         else {
             stepTracker.goalOfSteps = steps;
             System.out.println("Значение обновлено на " + stepTracker.goalOfSteps);
         }
+    }
+
+    void command4() {
+        System.out.println("Программа завершена");
     }
 }
